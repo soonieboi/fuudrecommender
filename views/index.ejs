@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Recommendation App</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Food Recommendation App</h1>
+        <button onclick="generateRandom()">Generate Random Recommendation</button>
+        <hr>
+
+        <form action="/" method="GET">
+            <!-- Your form content -->
+            <label for="cuisineFilter">Cuisine:</label>
+            <select id="cuisineFilter">
+                <!-- Add options as needed -->
+                <option value="italian">Italian</option>
+                <option value="mexican">Mexican</option>
+                <option value="japanese">Japanese</option>
+                <option value="indian">Indian</option>
+                <option value="american">American</option>
+            </select>
+
+            <label for="searchInput">Search:</label>
+            <input type="text" id="searchInput" placeholder="Search by name">
+
+            <button type="button" onclick="search()">Search</button>
+        </form>
+
+        <div class="results">
+            <!-- Placeholder for restaurant details -->
+            <% foodPlaces.forEach((place, i) => { %>
+                <div class="restaurant" data-cuisine="<%= place.cuisine %>">
+                    <h2><%= place.name %></h2>
+                    <p>Cuisine: <%= place.cuisine %></p>
+                    <p>Location: <%= place.location %></p>
+                    <p>Rating: <%= place.rating %></p>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="/script.js"></script>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1Ijoic2hlcm1pbiIsImEiOiJjbHAxZWg0ZGMwZXgxMnBxdWU0eWxvNzV2In0.4PzeCZSg-z9nprPITT2nwg';
+        // Call the initMap function when the page is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initMap();
+        });
+    </script>
+</body>
+</html>
