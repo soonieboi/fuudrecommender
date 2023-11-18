@@ -1,89 +1,50 @@
 body {
-    font-family: 'Lato', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: whitesmoke; /* Light gray background color */
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+;
 }
 
-.container {
+.top-bar {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 10px;
     text-align: center;
-    background-color: lightseagreen ; 
-    color: black; /* White text color */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    width: 80%;
-    margin: 20px auto;
 }
 
-h1 {
-    color: black; /* White text color */
-}
-
-form {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-label, select, input, button {
-    margin: 5px;
-    color: black;
-}
-
-select, input {
-    padding: 8px;
-    border: 1px solid #1A5D40; 
-    border-radius: 4px;
-    color: #1A5D40; 
-    background-color: #ffffff; 
-}
-
-button {
-    background-color: lightgray;
-    color: black; 
-    cursor: pointer;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 4px;
-   
-}
-
-.results {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.generate-random {
     margin-top: 10px;
 }
 
-.restaurant {
-    background-color: white; /* White background color */
-    padding: 5px;
-    margin: 5px;
-    border-radius: 8px;
-    width: 30%;
-    text-align: left;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    color: black;
-    font-size: small;
+/* Container for Sidebar and Map */
+.flex-container {
+    display: flex;
 }
 
+/* Sidebar Styles */
+.sidebar {
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center; 
+}
+
+/* Map Styles */
+.map-container {
+    width: 50%;
+    height: 100vh;
+}
+
+
+/* Responsive styles for smaller screens */
 @media (max-width: 768px) {
-    .results {
+    .top-bar {
         flex-direction: column;
         align-items: center;
     }
 
-    .restaurant {
-        width: 80%;
+    .top-suggested-places,
+    .map-container {
+        width: 100%;
     }
-}
-
-#map {
-    height: 400px;
-    width: 100%;
-    margin-top: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }

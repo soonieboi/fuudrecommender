@@ -1,60 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Recommendation App</title>
-    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet" />
+    <title>Hangry-Go-Where</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Food Recommendation App</h1>
-        <button onclick="generateRandom()">Generate Random Recommendation</button>
-        <hr>
-
-        <form action="/" method="GET">
-            <!-- Your form content -->
-            <label for="cuisineFilter">Cuisine:</label>
-            <select id="cuisineFilter">
-                <!-- Add options as needed -->
-                <option value="italian">Italian</option>
-                <option value="mexican">Mexican</option>
-                <option value="japanese">Japanese</option>
-                <option value="indian">Indian</option>
-                <option value="american">American</option>
-            </select>
-
-            <label for="searchInput">Search:</label>
-            <input type="text" id="searchInput" placeholder="Search by name">
-
-            <button type="button" onclick="search()">Search</button>
-        </form>
-
-        <div class="results">
-            <!-- Placeholder for restaurant details -->
-            <% foodPlaces.forEach((place, i) => { %>
-                <div class="restaurant" data-cuisine="<%= place.cuisine %>">
-                    <h2><%= place.name %></h2>
-                    <p>Cuisine: <%= place.cuisine %></p>
-                    <p>Location: <%= place.location %></p>
-                    <p>Rating: <%= place.rating %></p>
-                </div>
-            <% }); %>
+    <!-- Main Content (Top Bar) -->
+    <div class="top-bar">
+        <h1>Hangry-Go-Where</h1>
+        <!-- Generate Random Button -->
+        <div class="generate-random">
+            <button class="btn btn-primary btn-lg" onclick="generateRandom()">Give me a suggestion!</button>
+            <!-- Container for the random result -->
+            <div id="randomResultContainer"></div>
         </div>
     </div>
+    <!-- Sidebar and Map Section -->
+    <div class="flex-container">
 
-    <div id="map"></div>
+        <!-- Sidebar for Top Suggested Places -->
+        <aside class="sidebar">
+            <h2>Top Suggested Places</h2>
+            <!-- Display top suggested places here -->
+        </aside>
 
+        <!-- Map Section -->
+        <div id="map" class="map-container"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
     <script src="/script.js"></script>
-    <script>
-        mapboxgl.accessToken = 'pk.eyJ1Ijoic2hlcm1pbiIsImEiOiJjbHAxZWg0ZGMwZXgxMnBxdWU0eWxvNzV2In0.4PzeCZSg-z9nprPITT2nwg';
-        // Call the initMap function when the page is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            initMap();
-        });
-    </script>
 </body>
+
 </html>
